@@ -2,15 +2,12 @@
 
 int main(void)
 {
-int _a;
-int	_b; 
-int	_c;
-int	_d;
-int	_e;
-int	_f;
 int childPidB;
 int childPidD;
 int childPidC;
+int childPidE;
+int childPidF;
+
 
 	printf("\n\nBefore the fork. Process A has id : 	%d \n", getpid());
 	
@@ -27,6 +24,16 @@ int childPidC;
 		else if (childPidC == 0){
 			printf("I am C \(child\), my id is : 	%d \n", childPidC);
 			printf("I am C, my parent\'s(A) PID : 	%d \n", getppid());
+		
+			childPidE=fork();
+			if (childPidE != 0){
+				printf("I\'m C. My pid is:	 %d \n", getpid());
+				printf("E is child. E\'s pid is:	 %d \n", childPidE);
+			}
+			else if (childPidE == 0){
+				printf("I am E \(child\), my id is : 	%d \n", childPidE);
+				printf("I am E, my parent\'s(C) PID : 	%d \n", getppid());
+			}
 		}
 		
 		
