@@ -9,9 +9,11 @@
 
 int main(){
 int size = SIZE;
-int mat1 [size][size];
-int mat2 [size][size];
-int result [size][size];
+
+int mat1[SIZE][SIZE] = { {4,3,1},{3,7,2},{4,9,1} };
+int mat2[SIZE][SIZE] = { {4,10,9},{7,10,2},{6,4,7} };
+
+int result [SIZE][SIZE];
 
 	for(int i = 0; i < size; ++i)
 	{for(int j = 0; j < size ; ++j){
@@ -39,9 +41,9 @@ int result [size][size];
 
 		}
 	}
-
+	printf("\n\n--------\n\n");
     for(int i = 0; i < size; ++i)
-    {for(int j = 0; j < size ; ++j){printf("\n%d\t", result[i][j]);}
+    {for(int j = 0; j < size ; ++j){printf("%d\t", result[i][j]);}
         printf("\n");}
 
 }
