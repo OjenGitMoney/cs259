@@ -20,21 +20,22 @@ int result [SIZE][SIZE];
    			mat1[i][j] = rand() % 1000 +1;
    			mat2[i][j] = rand() % 1000 +1;}}
 
-	 for(int i = 0; i < size; ++i)
-	 {for(int j = 0; j < size ; ++j){printf("%d\t",mat1[i][j]);}
-	 	printf("\n");}
-	 printf("\n\n");
-	 for(int i = 0; i < size; ++i)
-	 {for(int j = 0; j < size ; ++j){printf("%d\t", mat2[i][j]);}
-	 	printf("\n");}
+	 // for(int i = 0; i < size; ++i)
+	 // {for(int j = 0; j < size ; ++j){printf("%d\t",mat1[i][j]);}
+	 // 	printf("\n");}
+	 // printf("\n\n");
+	 // for(int i = 0; i < size; ++i)
+	 // {for(int j = 0; j < size ; ++j){printf("%d\t", mat2[i][j]);}
+	 // 	printf("\n");}
 
 	//Doing the Multipication
 	int sum = 0;
-	clock_t startTime = clock();
 	
+	clock_t startTime = clock();
+	#pragma omp parallel for
 	for (int row = 0 ; row < size;  row++){
 		for (int col = 0 ; col < size ; col++){
-			
+			omp_set_num_threads(4);
 			for (int k = 0 ; k < size ; k++){
                 sum = sum + mat1[row][k] * mat2[k][col];
 			}
@@ -44,10 +45,10 @@ int result [SIZE][SIZE];
 	}
 	clock_t endTime = clock();
 
-	printf("\n\n--------\n\n");
-    for(int i = 0; i < size; ++i)
-    {for(int j = 0; j < size ; ++j){printf("%d\t", result[i][j]);}
-        printf("\n");}
+	// printf("\n\n--------\n\n");
+ //    for(int i = 0; i < size; ++i)
+ //    {for(int j = 0; j < size ; ++j){printf("%d\t", result[i][j]);}
+ //        printf("\n");}
 
     printf("runtime : \n");
     printf("%6.5f", (double)(endTime - startTime));
