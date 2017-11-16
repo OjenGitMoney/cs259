@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <omp.h>
+#include <time.h>
 #ifndef SIZE
-#define SIZE 3
+#define SIZE 200
 #endif
 
 
@@ -10,41 +11,45 @@
 int main(){
 int size = SIZE;
 
-int mat1[SIZE][SIZE] = { {4,3,1},{3,7,2},{4,9,1} };
-int mat2[SIZE][SIZE] = { {4,10,9},{7,10,2},{6,4,7} };
-
+int mat1[SIZE][SIZE];
+int mat2[SIZE][SIZE];
 int result [SIZE][SIZE];
 
 	for(int i = 0; i < size; ++i)
 	{for(int j = 0; j < size ; ++j){
-   			mat1[i][j] = rand() % 10 +1;
-   			mat2[i][j] = rand() % 10 +1;}}
+   			mat1[i][j] = rand() % 1000 +1;
+   			mat2[i][j] = rand() % 1000 +1;}}
 
-	 for(int i = 0; i < size; ++i)
-	 {for(int j = 0; j < size ; ++j){printf("%d\t",mat1[i][j]);}
-	 	printf("\n");}
-	 printf("\n\n");
-	 for(int i = 0; i < size; ++i)
-	 {for(int j = 0; j < size ; ++j){printf("%d\t", mat2[i][j]);}
-	 	printf("\n");}
+	 // for(int i = 0; i < size; ++i)
+	 // {for(int j = 0; j < size ; ++j){printf("%d\t",mat1[i][j]);}
+	 // 	printf("\n");}
+	 // printf("\n\n");
+	 // for(int i = 0; i < size; ++i)
+	 // {for(int j = 0; j < size ; ++j){printf("%d\t", mat2[i][j]);}
+	 // 	printf("\n");}
 
 	//Doing the Multipication
-
-		for (int row=1; row<= size;  ++row){
-			for (int col=1; col<= size; ++col){
-			int sum = 0;
-                for (int k=1; k<=size; ++k){
-                    //printf(sum);
-                    sum = sum + mat1[row][k] * mat2[k][col];
-			    }
-                result[row][col] = sum;
-
+	int sum = 0;
+	clock_t startTime = clock();
+	for (int row = 0 ; row < size;  row++){
+		for (int col = 0 ; col < size ; col++){
+			
+			for (int k = 0 ; k < size ; k++){
+                sum = sum + mat1[row][k] * mat2[k][col];
+			}
+			result[row][col] = sum;
+			sum = 0;
 		}
 	}
-	printf("\n\n--------\n\n");
-    for(int i = 0; i < size; ++i)
-    {for(int j = 0; j < size ; ++j){printf("%d\t", result[i][j]);}
-        printf("\n");}
+	clock_t endTime = clock();
+
+	// printf("\n\n--------\n\n");
+ //    for(int i = 0; i < size; ++i)
+ //    {for(int j = 0; j < size ; ++j){printf("%d\t", result[i][j]);}
+ //        printf("\n");}
+    printf("runtime : \n");
+    printf("%6.5f", (double)(endTime - startTime));
+    printf("\n");
 
 }
 
