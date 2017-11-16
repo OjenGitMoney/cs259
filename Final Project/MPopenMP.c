@@ -14,6 +14,7 @@ int size = SIZE;
 int mat1[SIZE][SIZE];
 int mat2[SIZE][SIZE];
 int result [SIZE][SIZE];
+#pragma omp parallel
 
 	for(int i = 0; i < size; ++i)
 	{for(int j = 0; j < size ; ++j){
@@ -30,14 +31,15 @@ int result [SIZE][SIZE];
 
 	//Doing the Multipication
 	int sum = 0;
-	
+	omp_set_num_threads(6);
 	clock_t startTime = clock();
-	#pragma omp parallel for
+	
+	#pragma omp for
 	for (int row = 0 ; row < size;  row++){
 		for (int col = 0 ; col < size ; col++){
-			omp_set_num_threads(4);
+			
 			for (int k = 0 ; k < size ; k++){
-                sum = sum + mat1[row][k] * mat2[k][col];
+                sum = sum + mat1[row][k] * mat2[k][col]; 
 			}
 			result[row][col] = sum;
 			sum = 0;

@@ -20,13 +20,13 @@ int result [SIZE][SIZE];
    			mat1[i][j] = rand() % 1000 +1;
    			mat2[i][j] = rand() % 1000 +1;}}
 
-	 for(int i = 0; i < size; ++i)
-	 {for(int j = 0; j < size ; ++j){printf("%d\t",mat1[i][j]);}
-	 	printf("\n");}
-	 printf("\n\n");
-	 for(int i = 0; i < size; ++i)
-	 {for(int j = 0; j < size ; ++j){printf("%d\t", mat2[i][j]);}
-	 	printf("\n");}
+	 // for(int i = 0; i < size; ++i)
+	 // {for(int j = 0; j < size ; ++j){printf("%d\t",mat1[i][j]);}
+	 // 	printf("\n");}
+	 // printf("\n\n");
+	 // for(int i = 0; i < size; ++i)
+	 // {for(int j = 0; j < size ; ++j){printf("%d\t", mat2[i][j]);}
+	 // 	printf("\n");}
 
 	//Doing the Multipication
 	int sum = 0;
@@ -44,10 +44,10 @@ int result [SIZE][SIZE];
 	}
 	clock_t endTime = clock();
 
-	printf("\n\n--------\n\n");
-    for(int i = 0; i < size; ++i)
-    {for(int j = 0; j < size ; ++j){printf("%d\t", result[i][j]);}
-        printf("\n");}
+	// printf("\n\n--------\n\n");
+ //    for(int i = 0; i < size; ++i)
+ //    {for(int j = 0; j < size ; ++j){printf("%d\t", result[i][j]);}
+ //        printf("\n");}
 
     printf("runtime : \n");
     printf("%6.5f", (double)(endTime - startTime));
