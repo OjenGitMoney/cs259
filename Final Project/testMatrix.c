@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <omp.h>
 #include <time.h>
+#include <sys/time.h>
 #ifndef SIZE
 #define SIZE 200
 #endif
@@ -42,15 +43,17 @@ int result [SIZE][SIZE];
 			sum = 0;
 		}
 	}
-	clock_t endTime = clock();
-
+	clock_t runtime = clock() - startTime;
+	int miliSeconds = runtime * 1000 / CLOCKS_PER_SEC;
 	// printf("\n\n--------\n\n");
  //    for(int i = 0; i < size; ++i)
  //    {for(int j = 0; j < size ; ++j){printf("%d\t", result[i][j]);}
  //        printf("\n");}
 
     printf("runtime : \n");
-    printf("%6.5f", (double)(endTime - startTime));
+    printf("%6.5f", (double)(runtime));
+    printf("\n");
+    printf("%d", miliSeconds);
     printf("\n");
 
 }

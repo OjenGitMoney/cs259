@@ -14,7 +14,6 @@ int size = SIZE;
 int mat1[SIZE][SIZE];
 int mat2[SIZE][SIZE];
 int result [SIZE][SIZE];
-#pragma omp parallel
 
 	for(int i = 0; i < size; ++i)
 	{for(int j = 0; j < size ; ++j){
@@ -31,21 +30,24 @@ int result [SIZE][SIZE];
 
 	//Doing the Multipication
 	int sum = 0;
-	omp_set_num_threads(6);
-	clock_t startTime = clock();
-	
-	#pragma omp for
-	for (int row = 0 ; row < size;  row++){
-		for (int col = 0 ; col < size ; col++){
-			
-			for (int k = 0 ; k < size ; k++){
-                sum = sum + mat1[row][k] * mat2[k][col]; 
+	int row, col, k;
+
+	double startTime = omp_get_wtime();
+	#pragma omp parallel shared(mat1, mat2, result) private(row, col, k)
+	{
+		#pragma OMP FOR SCHEDULE(STATIC)
+		for (int row = 0 ; row < size;  row++){
+			for (int col = 0 ; col < size ; col++){
+				
+				for (int k = 0 ; k < size ; k++){
+	                sum = sum + mat1[row][k] * mat2[k][col];
+				}
+				result[row][col] = sum;
+				sum = 0;
 			}
-			result[row][col] = sum;
-			sum = 0;
 		}
 	}
-	clock_t endTime = clock();
+	double endTime = omp_get_wtime();
 
 	// printf("\n\n--------\n\n");
  //    for(int i = 0; i < size; ++i)
@@ -54,6 +56,7 @@ int result [SIZE][SIZE];
 
     printf("runtime : \n");
     printf("%6.5f", (double)(endTime - startTime));
+    printf("\ntest");
     printf("\n");
 
 }
