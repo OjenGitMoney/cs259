@@ -1,0 +1,32 @@
+package main
+
+import (
+	"fmt"
+	//"time"
+	"math/rand"
+)
+
+func main() {
+	size := 3
+	mat1 := [3][3]int{}
+	//fmt.Println(mat1)
+	
+	
+	for i:= 0; i < size; i++ {
+		for j:= 0; j < size; j++ {
+			mat1[i][j] = rand.Intn(1000)
+			}
+	}
+	
+	
+	 for i := 0; i < size; i++ {
+		for j := 0; j < size ; j++ {
+			fmt.Print(mat1[i][j])
+			fmt.Print("\t")
+		}
+	 		fmt.Println()
+		}
+	
+	
+	
+}
