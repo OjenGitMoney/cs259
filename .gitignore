@@ -10,3 +10,6 @@ Project3/*.exe
 Final Project/*.png
 Final Project/a.exe
 *.exe
+*.exe
+Final Project/a.exe
+*.stackdump
