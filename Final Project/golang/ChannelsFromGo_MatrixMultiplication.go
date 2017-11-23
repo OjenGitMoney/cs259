@@ -21,23 +21,6 @@ func main() {
 			}
 	}
 	
-	//  for i := 0; i < size; i++ {
-	// 	for j := 0; j < size ; j++ {
-	// 		fmt.Print(mat1[i][j])
-	// 		fmt.Print("\t")
-	// 	}
-	//  		fmt.Println()
-	// 	}
-	// 	fmt.Println()
-	// 	fmt.Println()
-	// for i := 0; i < size; i++ {
-	// 	for j := 0; j < size ; j++ {
-	// 		fmt.Print(mat2[i][j])
-	// 		fmt.Print("\t")
-	// 	}
-	//  		fmt.Println()
-	// 	}	
-	
 	sum := 0
 	startTime := time.Now()
 
@@ -54,20 +37,7 @@ func main() {
 			
 	}
 
-	fmt.Println(size)
 	fmt.Println()
-	// for i := 0; i < size; i++ {
-	// 	for j := 0; j < size ; j++ {
-	// 		fmt.Print(result[i][j])
-	// 		fmt.Print("\t")
-	// 	}
-	//  		fmt.Println()
-	// 	}
-
-
-
-	//time.Sleep(time.Second * 3)
-
 	t := time.Now()
 	runTime := t.Sub(startTime)
 	fmt.Println(runTime)
