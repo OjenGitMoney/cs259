@@ -3,7 +3,7 @@
 #include <omp.h>
 #include <time.h>
 #ifndef SIZE
-#define SIZE 200
+#define SIZE 1000
 #endif
 
 

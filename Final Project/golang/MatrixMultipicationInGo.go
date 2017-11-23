@@ -7,19 +7,19 @@ import (
 )
 
 func main() {
-	size := 10
-	mat1 := [10][10]int{}
-	mat2 := [10][10]int{}
-	result := [10][10]int{}
+	size := 1000
+	mat1 := [1000][1000]int{}
+	mat2 := [1000][1000]int{}
+	result := [1000][1000]int{}
 
 	rand.Seed(int64(time.Now().Nanosecond()))
 	
-	// for i:= 0; i < size; i++ {
-	// 	for j:= 0; j < size; j++ {
-	// 		mat1[i][j] = rand.Intn(10) 
-	// 		mat2[i][j] = rand.Intn(10) 
-	// 		}
-	// }
+	for i:= 0; i < size; i++ {
+		for j:= 0; j < size; j++ {
+			mat1[i][j] = rand.Intn(1000) 
+			mat2[i][j] = rand.Intn(1000) 
+			}
+	}
 	
 	//  for i := 0; i < size; i++ {
 	// 	for j := 0; j < size ; j++ {
