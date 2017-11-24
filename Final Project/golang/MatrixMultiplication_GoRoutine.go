@@ -12,11 +12,7 @@ func main() {
 	mat2 := [1000][1000]int{}
 	result := [1000][1000]int{}
 
-	// mat1 := [3][3]int{ { 4, 3, 1 }, { 3, 7, 2 }, { 4, 9, 1 } }
-	// mat2 := [3][3]int{ { 4, 10, 9 }, { 7, 10, 2 }, { 6, 4, 7 } }
-	
 	rand.Seed(int64(time.Now().Nanosecond()))
-	
 	for i:= 0; i < size; i++ {
 		for j:= 0; j < size; j++ {
 			mat1[i][j] = rand.Intn(1000) 
