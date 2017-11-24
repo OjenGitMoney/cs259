@@ -7,22 +7,22 @@ import (
 )
 
 func main() {
-	size := 1000
-	mat1 := [1000][1000]int{}
-	mat2 := [1000][1000]int{}
-	result := [1000][1000]int{}
+	size := 3
+	//mat1 := [1000][1000]int{}
+	//mat2 := [1000][1000]int{}
+	result := [3][3]int{}
 
-	// mat1 := [3][3]int{ { 4, 3, 1 }, { 3, 7, 2 }, { 4, 9, 1 } }
-	// mat2 := [3][3]int{ { 4, 10, 9 }, { 7, 10, 2 }, { 6, 4, 7 } }
+	mat1 := [3][3]int{ { 4, 3, 1 }, { 3, 7, 2 }, { 4, 9, 1 } }
+	mat2 := [3][3]int{ { 4, 10, 9 }, { 7, 10, 2 }, { 6, 4, 7 } }
 	
 	rand.Seed(int64(time.Now().Nanosecond()))
 	
-	for i:= 0; i < size; i++ {
-		for j:= 0; j < size; j++ {
-			mat1[i][j] = rand.Intn(1000) 
-			mat2[i][j] = rand.Intn(1000) 
-			}
-	}
+	// for i:= 0; i < size; i++ {
+	// 	for j:= 0; j < size; j++ {
+	// 		mat1[i][j] = rand.Intn(1000) 
+	// 		mat2[i][j] = rand.Intn(1000) 
+	// 		}
+	// }
 	
 	sum := 0
 	startTime := time.Now()
@@ -42,13 +42,13 @@ func main() {
 	// fmt.Println()
 	// fmt.Println()
 
-	// for i := 0; i < size; i++ {
-	// 	for j := 0; j < size ; j++ {
-	// 		fmt.Print(result[i][j])
-	// 		fmt.Print("\t")
-	// 	}
-	//  		fmt.Println()
-	// 	}
+	for i := 0; i < size; i++ {
+		for j := 0; j < size ; j++ {
+			fmt.Print(result[i][j])
+			fmt.Print("\t")
+		}
+	 		fmt.Println()
+		}
 
 	fmt.Println()
 	t := time.Now()
@@ -56,7 +56,8 @@ func main() {
 	fmt.Println(runTime)
 }
 
-func sumMeUp(row int, col int, k int, mat1 [1000][1000]int, mat2 [1000][1000]int, sum int) int {
+func sumMeUp(row int, col int, k int, mat1 [3][3]int, mat2 [3][3]int, sum int) int {
 	sum = sum + mat1[row][k] * mat2[k][col]
+	fmt.Println(sum)
 	return sum
 }
