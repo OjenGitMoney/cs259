@@ -7,10 +7,10 @@ import (
 )
 
 func main() {
-	size := 1000
-	mat1 := [1000][1000]int{}
-	mat2 := [1000][1000]int{}
-	result := [1000][1000]int{}
+	size := 100
+	mat1 := [100][100]int{}
+	mat2 := [100][100]int{}
+	result := [100][100]int{}
 
 	rand.Seed(int64(time.Now().Nanosecond()))
 	

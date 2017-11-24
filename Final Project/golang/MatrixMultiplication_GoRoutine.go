@@ -7,10 +7,10 @@ import (
 )
 
 func main() {
-	size := 3
-	mat1 := [1000][1000]int{}
-	mat2 := [1000][1000]int{}
-	result := [1000][1000]int{}
+	size := 100
+	mat1 := [100][100]int{}
+	mat2 := [100][100]int{}
+	result := [100][100]int{}
 
 	rand.Seed(int64(time.Now().Nanosecond()))
 	for i:= 0; i < size; i++ {
@@ -42,7 +42,7 @@ func main() {
 	fmt.Println(runTime)
 }
 
-func sumMeUp(row int, col int, k int, mat1 [1000][1000]int, mat2 [1000][1000]int, sum int) int {
+func sumMeUp(row int, col int, k int, mat1 [100][100]int, mat2 [100][100]int, sum int) int {
 	sum = sum + mat1[row][k] * mat2[k][col]
 	return sum
 }

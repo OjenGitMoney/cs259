@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	size := 3
+	size := 1000
 	mat1 := [1000][1000]int{}
 	mat2 := [1000][1000]int{}
 	result := [1000][1000]int{}
