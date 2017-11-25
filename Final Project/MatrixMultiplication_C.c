@@ -44,10 +44,11 @@ srand ( time(NULL) );
 	clock_t runtime = clock() - startTime;
 	int miliSeconds = runtime * 1000 / CLOCKS_PER_SEC;
 
-    printf("runtime : \n");
+    printf("runtime : ");
     printf("%6.5f", (double)(runtime));
+    printf("");
     printf("\n");
-    printf("%d", miliSeconds);
+    printf("%d millisceconds", miliSeconds);
     printf("\n");
 
 }

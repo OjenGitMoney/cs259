@@ -7,10 +7,10 @@ import (
 )
 
 func main() {
-	size := 100
-	mat1 := [100][100]int{}
-	mat2 := [100][100]int{}
-	result := [100][100]int{}
+	size := 400
+	mat1 := [400][400]int{}
+	mat2 := [400][400]int{}
+	result := [400][400]int{}
 
 	rand.Seed(int64(time.Now().Nanosecond()))
 	
@@ -55,15 +55,15 @@ func main() {
 			
 	}
 
-	fmt.Println()
-	fmt.Println()
-	for i := 0; i < size; i++ {
-		for j := 0; j < size ; j++ {
-			fmt.Print(result[i][j])
-			fmt.Print("\t")
-		}
-	 		fmt.Println()
-		}
+	// fmt.Println()
+	// fmt.Println()
+	// for i := 0; i < size; i++ {
+	// 	for j := 0; j < size ; j++ {
+	// 		fmt.Print(result[i][j])
+	// 		fmt.Print("\t")
+	// 	}
+	//  		fmt.Println()
+	// 	}
 
 
 

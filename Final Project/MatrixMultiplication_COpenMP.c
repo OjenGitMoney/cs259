@@ -3,7 +3,7 @@
 #include <omp.h>
 #include <time.h>
 #ifndef SIZE
-#define SIZE 300
+#define SIZE 400
 #endif
 
 
@@ -46,9 +46,10 @@ int result [SIZE][SIZE];
 	}
 	double endTime = omp_get_wtime();
 
-    printf("runtime : \n");
+    printf("runtime : ");
     printf("%6.5f", (double)(endTime - startTime));
     printf("\n");
+    //printf("N = : " + size) ;
 
 }
 
