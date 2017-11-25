@@ -25,14 +25,16 @@ func main() {
 			}
 	}
 	
-	//sum := 0
+	sum := 0
 	startTime := time.Now()
 
 	for row := 0 ; row < size;  row++ {
 		for col := 0 ; col < size ; col++ {
 			
+			func sumMeUp(row int, col int, size int, mat1 [100][100]int, mat2 [100][100]int) int {
+			// need to remove this function later
 			result[row][col] = sumMeUp(row, col, size, mat1, mat2)
-			//sum = 0;
+			sum = 0
 		}
 			
 	}
@@ -51,7 +53,7 @@ func main() {
 	fmt.Println(runTime)
 }
 
-func sumMeUp(row int, col int, size int, mat1 [100][100]int, mat2 [100][100]int) int {
+
 	sum := 0
 	for k := 0 ; k < size ; k++ {
 		sum = sum + mat1[row][k] * mat2[k][col]
