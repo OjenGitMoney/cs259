@@ -5,8 +5,10 @@ import (
 	"time"
 	"math/rand"
 	"sync"
+	"runtime"
+	"strconv"
+	"strings"
 )
-
 
 
 func main() {
@@ -41,6 +43,7 @@ func main() {
 		
 		go func(){
 			defer wg.Done()
+			fmt.Println(i, goid())
 			sumMeUp(size, mat1, mat2, result, wg)
 		}()
 		
@@ -65,7 +68,6 @@ func sumMeUp(size int, mat1 [3][3]int, mat2 [3][3]int, result [3][3]int, wg sync
 				}
 			result[row][col] = sum
 			sum = 0
-			
 			}
 	}
 
@@ -78,4 +80,16 @@ func sumMeUp(size int, mat1 [3][3]int, mat2 [3][3]int, result [3][3]int, wg sync
 	 		fmt.Println()
 	}
 	
+}
+
+
+func goid() int {
+	var buf [64]byte
+	n := runtime.Stack(buf[:], false)
+	idField := strings.Fields(strings.TrimPrefix(string(buf[:n]), "goroutine "))[0]
+	id, err := strconv.Atoi(idField)
+	if err != nil {
+		panic(fmt.Sprintf("cannot get goroutine id: %v", err))
+	}
+	return id
 }
